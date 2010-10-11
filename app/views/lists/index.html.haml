@@ -1,0 +1,28 @@
+- title t('lists.my_lists')
+
+%h1= t('lists.my_lists')
+
+%h3= t('lists.active')
+%ul.active
+  - @active_lists.each do |list|
+    %li.list
+      .progress{ :style => "width: 25px;" }
+        .bar{ :style => "width: #{25 * list.progress}px;"}
+      
+      != link_to list.name, list
+      %span.task_count
+        = list.tasks.pending.length
+        = t('tasks.n_remaining')
+      %p.description
+        = truncate(st(markdown(list.description)), :length => 80, :separator => ' ') unless list.description.empty?
+        - if list.description.empty?
+          %i= T('lists.no_description')
+
+%h3= t('lists.finished')
+%ul.finished
+  - @finished_lists.each do |list|
+    %li.list
+      .progress{ :style => "width: 25px;" }
+        .bar.completed{ :style => "width: #{25 * list.progress}px;"}
+      
+      = link_to(list.name, list, :title => t('lists.reopen'), :class => "closed")

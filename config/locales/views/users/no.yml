@@ -1,0 +1,44 @@
+'no':
+  users:
+    login: "logg inn"
+    register: "registrer deg"
+    logout: "logg ut"
+    not_logged_in: "du er ikke innlogget"
+    logged_in_as: "logget inn som"
+  errors:
+    messages:
+      not_found: "ikke funnet"
+      already_confirmed: "var allerede bekreftet"
+      not_locked: "var ikke låst"
+  devise:
+    failure:
+      unauthenticated: 'Du må logge inn eller registrere deg for å fortsette.'
+      unconfirmed: 'Du må bekrefte kontoen din for å fortsette.'
+      locked: 'Din konto er låst.'
+      invalid: 'Ugyldig epost eller passord.'
+      invalid_token: 'Ugyldig autentifiseringsnøkkel.'
+      timeout: 'Din sesjon har utløpt. Vennligst logg inn igjen for å fortsette.'
+      inactive: 'Din konto er ikke aktivert ennå.'
+    sessions:
+      signed_in: 'Du er nå logget inn.'
+      signed_out: 'Du er nå logget ut.'
+    passwords:
+      send_instructions: 'Du vil om kort tid motta en epost med instruksjoner for å resette passordet ditt.'
+      updated: 'Ditt passord ble endret. Du er nå innlogget.'
+    confirmations:
+      send_instructions: 'Du vil om kort tid motta en epost med instruksjoner for å bekrefte kontoen din.'
+      confirmed: 'Din konto ble bekreftet. Du er nå innlogget.'
+    registrations:
+      signed_up: 'Du har nå registrert deg.'
+      updated: 'Din konto ble oppdatert.'
+      destroyed: 'Din konto ble slettet. Vi håper å se deg igjen.'
+    unlocks:
+      send_instructions: 'Du vil om kort tid motta en epost med instruksjoner for å låse opp kontoen din.'
+      unlocked: 'Din konto ble låst opp. Du er nå innlogget.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instruksjoner for bekreftelse av brukerkonto'
+      reset_password_instructions:
+        subject: 'Instruksjoner for å resette passord'
+      unlock_instructions:
+        subject: 'Instruksjoner for opplåsning av brukerkonto'

@@ -1,0 +1,9 @@
+
+"no":
+  tasks:
+    done: "ferdig"
+    pending: "ikke ferdig"
+    n_remaining: "oppgaver gjenstår"
+    done_empty: "ingen oppgaver er ferdige ennå :("
+    pending_empty: "ferdig med alle oppgaver!"
+    start_add: "legg til oppgaver"

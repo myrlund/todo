@@ -1,0 +1,9 @@
+en:
+  users:
+    login: "sign in"
+    register: "sign up"
+    logout: "sign out"
+    not_logged_in: "you are not logged in"
+  devise:
+    sessions:
+      signed_in: 'Signed in successfully.'

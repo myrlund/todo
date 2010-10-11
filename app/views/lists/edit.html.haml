@@ -1,0 +1,7 @@
+- title t('lists.editing')
+
+%h1= t('lists.editing')
+
+!= render 'form'
+
+!= link_to "« #{t('base.cancel')}", @list, :class => "cancel"

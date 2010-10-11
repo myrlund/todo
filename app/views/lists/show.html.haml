@@ -1,0 +1,33 @@
+- title @list.name
+
+%h1= @list.name
+
+%p(id="notice")= notice
+
+!= BlueCloth::new(@list.description).to_html
+
+%h3= T('tasks.pending')
+%ul
+  - unless @list.tasks.pending.empty?
+    != render @list.tasks.pending
+  - else
+    %li.empty= T('tasks.pending_empty')
+  - if @add
+    %li.new
+      = form_for @list.tasks.new do |f|
+        != f.hidden_field :list_id
+        != f.text_field   :text
+        != f.submit
+  - else
+    %li.add
+      %a{ :href => "?add" }= t('tasks.start_add')
+
+%h3= T('tasks.done')
+%ul
+  - unless @list.tasks.done.empty?
+    != render @list.tasks.done
+  - else
+    %li.empty= T('tasks.done_empty')
+
+!= link_to t('base.edit'), edit_list_path(@list) | 
+!= link_to t('base.back'), lists_path

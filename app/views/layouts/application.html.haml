@@ -1,0 +1,46 @@
+!!! 5
+%html
+  %head
+    %meta{ :charset => "utf-8" }
+    %title
+      - unless (yield :title).nil?
+        #{yield :title} - 
+      TODO
+    != stylesheet_link_tag "master"
+    
+    != javascript_include_tag :defaults
+    != csrf_meta_tag
+    
+    != yield :head
+  %body{ :class => controller_name }
+    #head
+      .c
+        #logo
+          %h1 TODO
+        .clear
+    #mainmenu
+      .c
+        #userpanel
+          - if user_signed_in?
+            = T('users.logged_in_as')
+            = current_user.email
+            |
+            != link_to t('users.logout'), destroy_user_session_path
+          - else
+            = T('users.not_logged_in')
+            = "-"
+            != link_to t('users.login'), new_user_session_path
+            = t('base.or')
+            != link_to t('users.register'), new_user_registration_path
+        %ul
+          %li!= link_to T('nav.home'), lists_path
+          %li!= link_to T('lists.new'), new_list_path
+        .clear
+    #main
+      .c
+        != yield
+    #footer
+      .c
+        %ul
+          %li!= t('base.dev')
+          %li Copyright &copy; 2010 Jonas Myrlund

@@ -1,0 +1,10 @@
+
+"no":
+  base:
+    back: "Tilbake"
+    edit: "Rediger"
+    cancel: "Avbryt"
+    or: "eller"
+    
+    dev: 'Kjører på <a href="http://rubyonrails.org/">Ruby on Rails</a>.'
+    

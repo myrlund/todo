@@ -1,0 +1,9 @@
+
+en:
+  base:
+    back: "Back"
+    edit: "Edit"
+    cancel: "Cancel"
+    or: "or"
+    
+    dev: 'Running on <a href="http://rubyonrails.org/">Ruby on Rails</a>.'

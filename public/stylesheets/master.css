@@ -1,0 +1,106 @@
+body {
+  font-family: verdana, arial, sans-serif;
+  font-size: 75%;
+  text-align: center;
+  margin: 0; }
+  body .c {
+    width: 900px;
+    margin: 0 auto;
+    text-align: left; }
+
+a {
+  color: #3366cc; }
+
+#head, #mainmenu {
+  background: #aaccee; }
+
+#head {
+  padding: 1em 0 .5em; }
+  #head h1 {
+    margin: 1em 0 0; }
+
+#mainmenu {
+  border-bottom: 1px solid #999999; }
+  #mainmenu #userpanel {
+    float: right;
+    font-size: .8em; }
+  #mainmenu ul {
+    /*position: relative;
+    top: 1px;*/
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    #mainmenu ul li {
+      list-style-type: none; }
+      #mainmenu ul li a {
+        display: block;
+        float: left;
+        padding: .2em 1.5em;
+        background: #5588ee;
+        margin: 0 1em 0 0;
+        color: #fff;
+        text-decoration: none; }
+      #mainmenu ul li a.active {
+        background: #3366cc; }
+
+#footer {
+  border-top: 1px solid #999999;
+  margin: 1em 0;
+  padding: 1em 0;
+  font-size: 0.8em; }
+  #footer .c {
+    text-align: center; }
+  #footer ul li {
+    margin: 1em 0; }
+
+ul.form {
+  padding: 0;
+  list-style-type: none; }
+  ul.form li {
+    margin: 1em 0; }
+    ul.form li label {
+      display: block; }
+  ul.form li.string input, ul.form li.text textarea {
+    border: 1px solid #bbbbbb;
+    padding: .5em;
+    color: #333333; }
+
+a.cancel, a.back {
+  color: #666666;
+  font-size: 0.8em; }
+
+/** Lists **/
+ul {
+  list-style-type: none;
+  padding: 0; }
+  ul li.list .progress {
+    float: left;
+    margin: 10px 0;
+    margin-right: 1em;
+    height: 9px;
+    background: #aaa;
+    /*			border: 1px solid #ccc;*/ }
+  ul li.list .bar {
+    background: #444;
+    height: 100%; }
+  ul li.list .bar.completed {
+    background: #595; }
+  ul li.list a.closed {
+    color: #333333;
+    text-decoration: none; }
+  ul li.list .task_count, ul li.list .description {
+    font-size: 0.8em; }
+  ul li.list .task_count {
+    color: #444444; }
+    ul li.list .task_count:before {
+      content: "- "; }
+  ul li.list .description {
+    color: #666666;
+    margin-top: .5em; }
+
+ul.finished li.list .progress {
+  margin-top: 3px;
+  margin-bottom: 0; }
+
+.clear {
+  clear: both; }
