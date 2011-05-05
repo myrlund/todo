@@ -26,6 +26,6 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :dbfix do
-    run "#{try_sudo} ln -s #{File.join(current_path,'config','database.yml')} #{File.join(current_path,'..','database.yml')}"
+    run "#{try_sudo} ln -s #{File.join(current_path,'..','database.yml')} #{File.join(current_path,'config','database.yml')}"
   end
 end
