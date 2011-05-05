@@ -16,7 +16,7 @@ class List < ActiveRecord::Base
     unless self.tasks.empty?
       self.tasks.done.length.to_f / self.tasks.length.to_f
     else
-      nil
+      0
     end
   end
 
