@@ -45,6 +45,7 @@ class ListsController < ApplicationController
   # POST /lists.xml
   def create
     @list = List.new(params[:list])
+    @list.user = current_user
 
     respond_to do |format|
       if @list.save
