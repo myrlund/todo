@@ -29,3 +29,5 @@ namespace :deploy do
     run "#{try_sudo} ln -s #{File.join(current_path,'..','database.yml')} #{File.join(current_path,'config','database.yml')}"
   end
 end
+
+after "deploy:symlink", "deploy:dbfix"
