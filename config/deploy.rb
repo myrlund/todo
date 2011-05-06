@@ -1,3 +1,5 @@
+require 'capistrano_database'
+
 set :application, "TODO"
 set :repository,  "git@github.com:myrlund/todo.git"
 
@@ -25,9 +27,4 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-  task :dbfix do
-    run "#{try_sudo} ln -s #{File.join(current_path,'..','database.yml')} #{File.join(current_path,'config','database.yml')}"
-  end
 end
-
-after "deploy:symlink", "deploy:dbfix"
