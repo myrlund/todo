@@ -31,4 +31,4 @@ namespace :deploy do
   end
 end
 
-after "deploy:symlink", "deploy:dbfix"
+after "deploy:finalize_update", "deploy:dbfix"
