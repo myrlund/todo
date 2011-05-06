@@ -6,6 +6,7 @@ authorization do
   
   role :user do
     
+    has_permission_on :lists, :to => :create
     has_permission_on :lists, :to => :manage do
       if_attribute :user => is { user }
     end
@@ -14,6 +15,10 @@ authorization do
       if_attribute :list => { :user => is { user } }
     end
     
+  end
+  
+  role :stalker do
+    has_permission_on [:lists, :tasks, :users], :to => :read
   end
   
   role :admin do

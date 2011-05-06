@@ -33,8 +33,9 @@
             = t('base.or')
             != link_to t('users.register'), new_user_registration_path
         %ul
-          %li!= link_to T('nav.home'), lists_path
-          %li!= link_to T('lists.new'), new_list_path
+          %li!= link_to T('nav.home'), root_path
+          - if permitted_to? :create, :lists
+            %li!= link_to T('lists.new'), new_list_path
         .clear
     #main
       .c

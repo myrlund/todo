@@ -1,11 +1,16 @@
 class TasksController < ApplicationController
+  
+  filter_resource_access
+  
+  before_filter :load_list
+  
   # GET /tasks
   # GET /tasks.xml
   def index
     @tasks = Task.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { redirect_to @list }
       format.xml  { render :xml => @tasks }
       format.json { render :json => @tasks }
     end
@@ -99,6 +104,12 @@ class TasksController < ApplicationController
       format.xml  { head :ok }
       format.json { head :ok }
     end
+  end
+  
+  private
+  
+  def load_list
+    @list = List.find(params[:list_id])
   end
   
 end

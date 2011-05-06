@@ -1,10 +1,12 @@
 class ListsController < ApplicationController
+  
+  filter_resource_access
+  
+  before_filter :new_list, :only => :new
+  
   # GET /lists
   # GET /lists.xml
   def index
-    @active_lists = List.active.select {|list| list.user == current_user}
-    @finished_lists = List.finished.select {|list| list.user == current_user}
-    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @lists }
@@ -15,7 +17,6 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.xml
   def show
-    @list = List.find(params[:id])
     @add = params.key? :add
     
     respond_to do |format|
@@ -28,8 +29,6 @@ class ListsController < ApplicationController
   # GET /lists/new
   # GET /lists/new.xml
   def new
-    @list = List.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @list }
@@ -38,7 +37,6 @@ class ListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
-    @list = List.find(params[:id])
   end
 
   # POST /lists
@@ -77,7 +75,6 @@ class ListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.xml
   def destroy
-    @list = List.find(params[:id])
     @list.destroy
 
     respond_to do |format|
@@ -85,4 +82,11 @@ class ListsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def new_list
+    @list = List.new(:user => current_user)
+  end
+  
 end

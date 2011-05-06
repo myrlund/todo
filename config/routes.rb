@@ -1,18 +1,17 @@
 Todo::Application.routes.draw do
-  
+
   devise_for :users
 
+  resources :users
   resources :lists do
-    resources :tasks
-  end
-  
-  resources :tasks do
-    member do
-      get 'toggle_done'
+    resources :tasks do
+      member do
+        get 'toggle_done'
+      end
     end
   end
   
-  root :to => "lists#index"
+  root :to => "site#welcome"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

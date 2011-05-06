@@ -1,4 +1,4 @@
 %li
-  = form_for task do |f|
+  = form_for [@list, task] do |f|
     != f.check_box :done?, :onchange => "this.form.submit();"
     = task.text

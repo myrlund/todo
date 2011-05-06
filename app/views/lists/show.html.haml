@@ -12,15 +12,17 @@
     != render @list.tasks.pending
   - else
     %li.empty= T('tasks.pending_empty')
-  - if @add
-    %li.new
-      = form_for @list.tasks.new do |f|
-        != f.hidden_field :list_id
-        != f.text_field   :text
-        != f.submit
-  - else
-    %li.add
-      %a{ :href => "?add" }= t('tasks.start_add')
+  
+  - if permitted_to? :create, :tasks
+    - if @add
+      %li.new
+        = form_for [@list, @list.tasks.new] do |f|
+          != f.hidden_field :list_id
+          != f.text_field   :text
+          != f.submit
+    - else
+      %li.add
+        %a{ :href => "?add" }= t('tasks.start_add')
 
 %h3= T('tasks.done')
 %ul

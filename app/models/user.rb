@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation
   
   def role_symbols
-    (roles || []).map {|role| role.name.underscore.to_sym}
+    [:user] + (roles || []).map {|role| role.name.underscore.to_sym}
   end
 end
