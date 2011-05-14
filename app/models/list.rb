@@ -1,6 +1,8 @@
 require 'bluecloth'
 
 class List < ActiveRecord::Base
+  using_access_control
+  
   belongs_to :user
   has_many :tasks
   

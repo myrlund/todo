@@ -9,6 +9,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def current
+    @user = current_user
+    
+    respond_to do |format|
+      format.html { render :action => "show" }
+      format.json { render :json => @user.attributes }
+      format.xml  { render :xml => @user.map(&:attributes) }
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     

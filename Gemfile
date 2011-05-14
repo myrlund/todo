@@ -27,9 +27,11 @@ gem 'capistrano'
 # end
 
 gem 'haml'
+gem 'sass'
 gem 'formtastic'
 gem 'bluecloth'
 gem 'devise'
 gem 'declarative_authorization'
 gem 'cucumber'
 gem 'jquery-rails'
+gem 'barista'

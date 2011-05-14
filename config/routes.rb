@@ -2,7 +2,10 @@ Todo::Application.routes.draw do
 
   devise_for :users
 
-  resources :users
+  resources :users do
+    get 'current', :on => :collection
+  end
+  
   resources :lists do
     resources :tasks do
       member do

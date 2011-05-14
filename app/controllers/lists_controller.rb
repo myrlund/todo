@@ -1,16 +1,14 @@
 class ListsController < ApplicationController
   
   filter_resource_access
-  
-  before_filter :new_list, :only => :new
-  
+
   # GET /lists
   # GET /lists.xml
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @lists }
-      format.json { render :json => @lists }
+      format.xml  { render :xml => current_user.lists.map(&:attributes) }
+      format.json { render :json => current_user.lists.map(&:attributes) }
     end
   end
 
@@ -81,12 +79,6 @@ class ListsController < ApplicationController
       format.html { redirect_to(lists_url) }
       format.xml  { head :ok }
     end
-  end
-  
-  private
-  
-  def new_list
-    @list = List.new(:user => current_user)
   end
   
 end

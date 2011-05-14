@@ -1,0 +1,161 @@
+
+$main_color: #36c;
+$text_color: #333;
+$border_color: $text_color + #888;
+$info_color: $text_color + #333;
+$info_size: .8em;
+
+$c_width: 900px;
+
+body {
+	font: {
+		family: verdana, arial, sans-serif;
+		size: 75%;
+	}
+	text-align: center;
+	margin: 0;
+	
+	.c {
+		width: $c_width;
+		margin: 0 auto;
+		text-align: left;
+	}
+}
+
+a {
+	color: $main_color;
+}
+
+#head, #mainmenu {
+	background: $main_color + #762;
+}
+#head {
+	padding: 1em 0 .5em;
+	
+	h1 {
+		margin: .5em 0 0;
+	}
+}
+#mainmenu {
+	border-bottom: 1px solid $text_color + #666;
+	
+    #userpanel {
+        float: right;
+        font-size: .8em;
+    }
+
+	ul {
+		/*position: relative;
+		top: 1px;*/
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		
+		li {
+			list-style-type: none;
+			
+			a {
+				display: block;
+				float: left;
+				padding: .2em 1.5em;
+				background: $main_color + #222;
+				margin: 0 1em 0 0;
+				color: #fff;
+				text-decoration: none;
+			}
+			a.active {
+				background: $main_color;
+			}
+		}
+	}
+}
+
+#footer {
+	border-top: 1px solid $text_color + #666;
+	margin: 1em 0;
+	padding: 1em 0;
+	font-size: $info_size;
+	
+	.c {
+		text-align: center;
+	}
+	
+	ul li {
+		margin: 1em 0;
+	}
+}
+
+ul.form {
+	padding: 0;
+	list-style-type: none;
+	
+	li {
+		margin: 1em 0;
+		
+		label {
+			display: block;
+		}
+	}
+	li.string input, li.text textarea {
+		border: 1px solid $border_color;
+		padding: .5em;
+		color: $text_color;
+	}
+}
+
+a.cancel, a.back {
+	color: $info_color;
+	font-size: $info_size;
+}
+
+/** Lists **/
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	
+	li.list {
+		.progress {
+			float: left;
+			margin: 10px 0;
+			margin-right: 1em;
+			height: 9px;
+			background: #aaa;
+/*			border: 1px solid #ccc;*/
+		}
+			.bar {
+				background: #444;
+				height: 100%;
+			}
+			.bar.completed {
+				background: #595;
+			}
+		
+		a.closed {
+			color: $text_color;
+			text-decoration: none;
+		}
+		.task_count, .description {
+		    font-size: $info_size;
+		}
+		.task_count {
+			color: $text_color + #111;
+
+			&:before {
+				content: "- ";
+			}
+		}
+		.description {
+			color: $info_color;
+			margin-top: .5em;
+		}
+	}
+}
+ul.finished li.list .progress {
+	margin-top: 3px;
+	margin-bottom: 0;
+}
+
+.clear {
+	clear: both;
+}
